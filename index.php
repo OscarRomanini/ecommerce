@@ -1,16 +1,18 @@
 <?php 
 
 require_once("vendor/autoload.php");
+use \Slim\Slim;
+use Hcode\Page;
 
-$app = new \Slim\Slim();
+$app = new Slim();
 
 $app->config('debug', true);
 
 $app->get('/', function() {
 
-	$sql = new Hcode\DB\Sql();
-	$result = $sql->select("SELECT * FROM tb_categories");
-	echo json_encode($result);
+	$page = new Page();
+	$page->setTpl("index");
+	//LEMBRE-SE: O DESTRUCT é chamado sozinho!
 
 });
 

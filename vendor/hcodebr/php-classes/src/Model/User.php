@@ -13,10 +13,8 @@ class User extends Model
     {
 
         $sql = new Sql();
-        $results = $sql->select('SELECT * FROM tb_users WHERE deslogin = :LOGIN and 
-        despassword = :PASSWORD', array(
-            ':LOGIN' => $login,
-            ':PASSWORD' => $password
+        $results = $sql->select('SELECT * FROM tb_users WHERE deslogin = :LOGIN', array(
+            ':LOGIN' => $login
         ));
 
         if (count($results) === 0) {
